@@ -11,11 +11,16 @@ jobs:
             node-version: 16.3.0
         - name: Install
           run: npm install
-        - name: Test
+        - name: Run Android tests
           env:
             BROWSERSTACK_USER: ${{ secrets.BS_USER }}
             BROWSERSTACK_KEY: ${{ secrets.BS_KEY }}
           run: npm run android:bs
+        - name: Run IOS tests
+          env:
+            BROWSERSTACK_USER: ${{ secrets.BS_USER }}
+            BROWSERSTACK_KEY: ${{ secrets.BS_KEY }}
+          run: npm run ios:bs
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
