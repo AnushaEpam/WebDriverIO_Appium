@@ -15,7 +15,7 @@ jobs:
           env:
             BROWSERSTACK_USER: ${{ secrets.BS_USER }}
             BROWSERSTACK_KEY: ${{ secrets.BS_KEY }}
-          run: npm run android:test
+          run: npm run android:bs
         - uses: actions/upload-artifact@v1
           if: failure()
           with:
